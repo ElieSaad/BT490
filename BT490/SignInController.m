@@ -80,7 +80,10 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (NSString *)stringFromStatus:(NetworkStatus) status 
+
+//Method that converts the network status into a string.
+//Returns a string representing the network status state.
+- (NSString *)statusAsString:(NetworkStatus) status 
 {
     NSString *string;
     switch(status) {
@@ -110,7 +113,7 @@
     Reachability *reach = [[Reachability reachabilityWithHostName:@"www.blueteam490.com"] init];
     NetworkStatus status = [reach currentReachabilityStatus];
     
-    NSString *statusMessage = [self stringFromStatus:status];
+    NSString *statusMessage = [self statusAsString:status];
     
     if ([statusMessage isEqualToString:@"Unknown"] || 
         [statusMessage isEqualToString:@"Not Reachable"] 
