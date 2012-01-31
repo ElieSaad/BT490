@@ -37,6 +37,7 @@
     connection = nil;
     usernameTextField.delegate = self;
     passwordTextField.delegate = self;
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -132,6 +133,9 @@
     }
     else if (usernameTextField.text.length == 0 || passwordTextField.text.length == 0) {
         errorMessageField.text = @"Please enter a valid username and/or password";
+        [loginIndicator stopAnimating];
+        loginIndicator.hidden = TRUE;
+        loginButton.enabled = TRUE; //Reenable the login button
     }
     else 
     {
@@ -147,10 +151,8 @@
         //NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:@"http://www.blueteam490.com"]];
+        [request setURL:[NSURL URLWithString:@"http://www.blueteam490.com/CreateAuthToken"]];
         [request setHTTPMethod:@"POST"];
-        [request setValue:@"/CreateAuthToken" forHTTPHeaderField:@"action"];
-        //[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
         
         [request setHTTPBody:postData];
@@ -193,7 +195,9 @@
     //Error code
 }
 
--(void)fetchedData:(NSData *)responseData //(OptionsViewController *)controller 
+//To parse a json object
+//@parameter responseData: the data to be parsed
+-(void)parseJsonData:(NSData *)responseData 
 {
     //Parse the json data
     NSError *error;
@@ -204,21 +208,20 @@
         NSString *token = [json objectForKey:@"token"];
         optionsViewController.player.name = [NSString stringWithString:userId];
         optionsViewController.player.token = [NSString stringWithString:token];
-        errorMessageField.text = [NSString stringWithString:optionsViewController.player.name];
+        //errorMessageField.text = [NSString stringWithString:optionsViewController.player.name];
     }
 
 }
 
 
+//Called once the connection finishes loading the data
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    //
-    
     NSString *response = [[[NSString alloc] initWithData:userData encoding:NSUTF8StringEncoding] copy];
-    if (response.length >= 1) 
+    if (response.length > 0) 
     {
         player.authenticated = TRUE;
-        errorMessageField.text = response;//@"Player is authenticated";
+        errorMessageField.text = @"Player is authenticated";
         
         UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"BT490NavigationController"];
         
@@ -228,18 +231,13 @@
         optionsViewController.player.name = [[NSString alloc] initWithString:usernameTextField.text];
         
         optionsViewController.welcomeText = [NSString stringWithFormat:@"Welcome %@", optionsViewController.player.name];
+        
+        //Read the json object data received and send it for parsing
         dispatch_async(BTBgQueue, ^{ 
             NSData *data = [NSData dataWithData:userData];
-            [self fetchedData:data];
-            //[self performSelectorOnMainThread:@selector(fetchedData:)withObject:data waitUntilDone:YES];
+            [self parseJsonData:data];
         });
-        //[self fetchedData:optionsViewController];
-//        if (userData.length >= 1) {
-//            dispatch_async(BTBgQueue, ^{
-//                [self performSelectorOnMainThread:@selector(fetchedData:)withObject:userData waitUntilDone:YES];
-//            });
-//        }
-        
+                
         [self.navigationController presentModalViewController:navigationController animated:YES];
     }
     else

@@ -73,6 +73,13 @@
     option.value = @"...";
     option.idNum = 5;
     [options addObject:option];
+    //
+//    option = [[Option alloc] init];
+//    option.name = @"Profile";
+//    option.value = @"...";
+//    option.idNum = 6;
+//    option.dictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d", player.playerID],@"id", player.token, @"token", nil];
+//    [options addObject:option];
     
     [self updateWelcomeLabel:welcomeText];
     // Uncomment the following line to preserve selection between presentations.
@@ -148,7 +155,10 @@
             break;
         case 5: //Store
             return [UIImage imageNamed:@"store.png"];
-            break;            
+            break;    
+//        case 6: //Profile
+//            return [UIImage imageNamed:@"avatar.png"];
+//            break; 
         default:
             break;
     }
@@ -163,28 +173,13 @@
     static NSString *cellIdentifier = @"OptionCell";
     
     OptionCell *cell = (OptionCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//    }
     
     Option *option = [self.options objectAtIndex:indexPath.row];
     cell.nameLabel.text = option.name;
     cell.valueLabel.text = option.value;
     cell.optionImageView.image = [self imageForOption:option.idNum];
     
-//    cell.textLabel.text = option.name;
-//    cell.detailTextLabel.text = option.value;
-//    UILabel *nameLabel = (UILabel *)[cell viewWithTag:100];
-//    nameLabel.text = option.name;
-//    
-//    UILabel *valueLabel = (UILabel *)[cell viewWithTag:101];
-//    valueLabel.text = option.value;
-//    
-//    UIImageView *optionImageView = (UIImageView *)[cell viewWithTag:102];
-//    optionImageView.image = [self imageForOption:option.idNum];
-    
-    
+
     // Configure the cell...
     
     return cell;
@@ -249,12 +244,12 @@
     if([segue.identifier isEqualToString:@"ViewOption"])
     {
         UINavigationController *navigationController = segue.destinationViewController;
-        OptionDetailsViewController *optionDetailsViewControler = [[navigationController viewControllers] objectAtIndex:0];
+        OptionDetailsViewController *optionDetailsViewController = [[navigationController viewControllers] objectAtIndex:0];
         
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Option *option = [self.options objectAtIndex:indexPath.row];
-        optionDetailsViewControler.optionToShow = option;
-        optionDetailsViewControler.delegate = self;
+        optionDetailsViewController.optionToShow = option;
+        optionDetailsViewController.delegate = self;
         
     }
 }

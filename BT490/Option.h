@@ -13,4 +13,6 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *value;
 @property (nonatomic, assign) int idNum;
+@property (nonatomic, strong) NSMutableDictionary *dictionary;
+
 @end

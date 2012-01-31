@@ -13,5 +13,6 @@
 @synthesize name;
 @synthesize value;
 @synthesize idNum;
+@synthesize dictionary;
 
 @end

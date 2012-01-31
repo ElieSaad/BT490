@@ -119,8 +119,7 @@
 		474B2C4D14CE712900A82B3C /* BT490 */ = {
 			isa = PBXGroup;
 			children = (
-				474B2C6414CE713E00A82B3C /* Interface */,
-				474B2C6514CE714E00A82B3C /* Implementation */,
+				47DDF03114D5130100A7E22F /* Core */,
 				474B2C5914CE712900A82B3C /* MainStoryboard.storyboard */,
 				474B2C4E14CE712900A82B3C /* Supporting Files */,
 			);
@@ -142,14 +141,7 @@
 		474B2C6414CE713E00A82B3C /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				475BBB8914D221E100EAF153 /* Reachability.h */,
-				474B2C8014D0664C00A82B3C /* Option.h */,
-				474B2C8114D0664C00A82B3C /* OptionCell.h */,
-				474B2C7F14D0662B00A82B3C /* OptionsViewController.h */,
-				474B2C5614CE712900A82B3C /* AppDelegate.h */,
 				474B2C5C14CE712900A82B3C /* SignInController.h */,
-				474B2C6E14CF089B00A82B3C /* Player.h */,
-				474B2C8714D0DBE800A82B3C /* OptionDetailsViewController.h */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -157,13 +149,6 @@
 		474B2C6514CE714E00A82B3C /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
-				475BBB8A14D221EA00EAF153 /* Reachability.m */,
-				474B2C8814D0DBE800A82B3C /* OptionDetailsViewController.m */,
-				474B2C7D14D0662000A82B3C /* OptionsViewController.m */,
-				474B2C8214D0665900A82B3C /* OptionCell.m */,
-				474B2C8314D0665900A82B3C /* Option.m */,
-				474B2C6F14CF089B00A82B3C /* Player.m */,
-				474B2C5714CE712900A82B3C /* AppDelegate.m */,
 				474B2C5D14CE712900A82B3C /* SignInController.m */,
 			);
 			name = Implementation;
@@ -184,6 +169,133 @@
 				474B2C7814D0660100A82B3C /* stats.png */,
 			);
 			name = Pics;
+			sourceTree = "<group>";
+		};
+		47DDF03114D5130100A7E22F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				47DDF03D14D5143B00A7E22F /* AppDelegate */,
+				47DDF03A14D5140300A7E22F /* Player */,
+				47DDF03514D5135E00A7E22F /* Option */,
+				47DDF03414D5135000A7E22F /* Network */,
+				47DDF03314D5132900A7E22F /* SignIn */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		47DDF03314D5132900A7E22F /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				474B2C6414CE713E00A82B3C /* Interface */,
+				474B2C6514CE714E00A82B3C /* Implementation */,
+			);
+			name = SignIn;
+			sourceTree = "<group>";
+		};
+		47DDF03414D5135000A7E22F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				47DDF03814D513A300A7E22F /* Interface */,
+				47DDF03914D513AB00A7E22F /* Implementation */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		47DDF03514D5135E00A7E22F /* Option */ = {
+			isa = PBXGroup;
+			children = (
+				47DDF03614D5138000A7E22F /* Interface */,
+				47DDF03714D5138A00A7E22F /* Implementation */,
+			);
+			name = Option;
+			sourceTree = "<group>";
+		};
+		47DDF03614D5138000A7E22F /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				474B2C8014D0664C00A82B3C /* Option.h */,
+				474B2C8114D0664C00A82B3C /* OptionCell.h */,
+				474B2C7F14D0662B00A82B3C /* OptionsViewController.h */,
+				474B2C8714D0DBE800A82B3C /* OptionDetailsViewController.h */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		47DDF03714D5138A00A7E22F /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				474B2C8814D0DBE800A82B3C /* OptionDetailsViewController.m */,
+				474B2C7D14D0662000A82B3C /* OptionsViewController.m */,
+				474B2C8214D0665900A82B3C /* OptionCell.m */,
+				474B2C8314D0665900A82B3C /* Option.m */,
+			);
+			name = Implementation;
+			sourceTree = "<group>";
+		};
+		47DDF03814D513A300A7E22F /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				475BBB8914D221E100EAF153 /* Reachability.h */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		47DDF03914D513AB00A7E22F /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				475BBB8A14D221EA00EAF153 /* Reachability.m */,
+			);
+			name = Implementation;
+			sourceTree = "<group>";
+		};
+		47DDF03A14D5140300A7E22F /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				47DDF03B14D5140C00A7E22F /* Interface */,
+				47DDF03C14D5141500A7E22F /* Implementation */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		47DDF03B14D5140C00A7E22F /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				474B2C6E14CF089B00A82B3C /* Player.h */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		47DDF03C14D5141500A7E22F /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				474B2C6F14CF089B00A82B3C /* Player.m */,
+			);
+			name = Implementation;
+			sourceTree = "<group>";
+		};
+		47DDF03D14D5143B00A7E22F /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				47DDF03F14D5144A00A7E22F /* Interface */,
+				47DDF03E14D5144700A7E22F /* Implementation */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		47DDF03E14D5144700A7E22F /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				474B2C5714CE712900A82B3C /* AppDelegate.m */,
+			);
+			name = Implementation;
+			sourceTree = "<group>";
+		};
+		47DDF03F14D5144A00A7E22F /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				474B2C5614CE712900A82B3C /* AppDelegate.h */,
+			);
+			name = Interface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

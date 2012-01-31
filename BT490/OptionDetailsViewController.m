@@ -106,6 +106,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+//    static NSString *cellIdentifier = @"OptionCell";
+//    
+//    OptionCell *cell = (OptionCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//    if ([optionToShow.name isEqualToString:"Profile"]) {
+//        cell.nameLabel.text = 
+//    }
+//    Option *option = [self.options objectAtIndex:indexPath.row];
+//    cell.nameLabel.text = option.name;
+//    cell.valueLabel.text = option.value;
+//    cell.optionImageView.image = [self imageForOption:option.idNum];
+    
     // Configure the cell...
     
     return cell;
