@@ -228,7 +228,7 @@
         
         UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"BT490NavigationController"];
         
-        optionsViewController = [[navigationController viewControllers] objectAtIndex:0];//[self.storyboard instantiateViewControllerWithIdentifier:@"BT490"];
+        optionsViewController = [[navigationController viewControllers] objectAtIndex:0];
         optionsViewController.delegate = self;
         optionsViewController.player = [[Player alloc] init];
         optionsViewController.player.name = [[NSString alloc] initWithString:usernameTextField.text];

@@ -151,7 +151,7 @@
             return [UIImage imageNamed:@"settings.png"];
             break;
         case 4: //Search
-            return [UIImage imageNamed:@"search1.png"];
+            return [UIImage imageNamed:@"search.png"];
             break;
         case 5: //Store
             return [UIImage imageNamed:@"store.png"];
